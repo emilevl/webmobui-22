@@ -10,6 +10,83 @@
     <script src="main.js"></script>
   </head>
   <body>
-    <span class="material-icons">face</span>
+    <!-- <div class="container"> -->
+      <header>
+        <div id="logo-section">
+          <img src="./img/logo-spotify-blue.png" width="50px" height="50px">
+          <!-- <p>Spotlify</p> -->
+        </div>
+        <div id="search-box">
+          <input type="search" spellcheck="false" autocapitalize="false">
+          <span class="material-icons md-48 search">search</span>
+        </div>
+      </header>
+      <main>
+        <section id="artists-section" class="hidden">
+          
+          <div class="artist">
+            <img src="http://placekitten.com/100/100">
+          </div>
+          <div class="artist">
+            <img src="http://placekitten.com/100/100">
+          </div>
+          <div class="artist">
+            <img src="http://placekitten.com/100/100">
+          </div>
+          <div class="artist">
+            <img src="http://placekitten.com/100/100">
+          </div>
+          <div class="artist">
+            <img src="http://placekitten.com/100/100">
+          </div>
+        </section>
+
+        <section id="home-section" class="hidden">
+          <h2 class="title">Bienvenue sur Spotlified</h2>
+          <h3>Playlists</h3>
+          <div id="playlists">
+            <button type="button">Chillectro</button>
+            <button type="button">Pardy Pardy</button>
+            <button type="button">Motivation</button>
+            <button type="button">Shake to...</button>
+          </div>
+          <button>Vers les chansons</button>
+        </section>
+
+        <section id="player-section" class="hidden">
+          <div id="player-thumbnail">
+            <img src="http://placekitten.com/200/300" alt="Kitty the cat">
+          </div>
+          <div id="player-audio">
+            <audio id="audio-player" src="https://…" ></audio>
+            <div id="player-buttons">
+              <div id="player-button-back">
+                <span class="material-icons">first_page</span>
+              </div>
+              <div id="player-button-play">
+                <span class="material-icons">arrow_right</span>
+              </div>
+              <div id="player-button-next">
+                <span class="material-icons">last_page</span>
+              </div>
+            </div>
+            <input type="range" value="20" min="0" max="100"/>
+          </div>
+        </section>
+
+        <section id="playlists-section">
+          ul#playlists-list>li#playlist-name*5
+        </section>        
+      </main>
+      <footer>
+        <nav>
+          <a href="#"><span class="material-icons">home</span></a>
+          <a href="#"><span class="material-icons">play_circle</span></a>
+          <a href="#"><span class="material-icons">queue_music</span></a>
+          <a href="#"><span class="material-icons">format_list_bulleted</span></a>
+        </nav>
+      </footer>
+    <!-- </div> -->
+    
   </body>
 </html>

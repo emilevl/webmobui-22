@@ -1,1 +1,22 @@
 /* ... some stuffs... */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+nav > a {
+    flex-direction: row;
+    align-items: stretch;
+    padding: 10px;
+    margin: 10px;
+    flex-grow: 1;
+    background-color: lightcyan;
+    text-align: center;
+  }
+
+nav a:hover {
+    background-color: #636363
+}
