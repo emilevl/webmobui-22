@@ -116,11 +116,14 @@
 
       <section id="artists-section">
         <h4>Artistes</h4>
-        <div class="artist-list">
-          <a href="#">
-            <img src="http://placekitten.com/200/300" />
-            <div class="artist-list-item-title">Ava Max</div>
-          </a>
+        <div class="artist-list">  
+          <template id="artist-list-item-template">
+            <a href="#">
+              <img src="" />
+              <div class="artist-list-item-title"></div>
+            </a>
+          </template>
+          
           <a href="#">
             <img src="http://placekitten.com/200/300" />
             <div class="artist-list-item-title">Ed Sheeran</div>
@@ -140,7 +143,7 @@
           <a href="#">
             <img src="http://placekitten.com/200/300" />
             <div class="artist-list-item-title">Stromaé</div>
-          </a>
+          </a> -->
         </div>
       </section>
 
@@ -154,20 +157,30 @@
             <span class="material-icons">add</span>
           </button>
         </h4>
-
-        <ul class="list">
-          <!-- Exemple avec un lien et un chevron (par exemple dans la liste de playlists, le lien qui mène à son contenu-->
-          <li>
+        <ul class="song-list list">
+          <template id="artist-song-list-item-template">
             <a href="#">
               <div class="list-item-title">Never going home</div>
               <div class="list-item-actions">
                 <span class="material-icons">chevron_right</span>
               </div>
             </a>
-          </li>
+          </template>
+        </ul>
+
+        <!-- <ul class="list"> -->
+          <!-- Exemple avec un lien et un chevron (par exemple dans la liste de playlists, le lien qui mène à son contenu-->
+          <!-- <li>
+            <a href="#">
+              <div class="list-item-title">Never going home</div>
+              <div class="list-item-actions">
+                <span class="material-icons">chevron_right</span>
+              </div>
+            </a>
+          </li> -->
 
           <!-- Exemple sans lien -->
-          <li>
+          <!-- <li>
             <div class="list-item-title">Never going home</div>
             <div class="list-item-actions">
               <button type="button" class="icon-button">
@@ -222,7 +235,7 @@
               </button>
             </div>
           </li>
-        </ul>
+        </ul> -->
       </section>
       <!------------------------------------------------------------------------------------------------------------>
     </main>
