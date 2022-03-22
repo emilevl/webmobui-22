@@ -1,5 +1,6 @@
 # Ignore npm config.
 /node_modules
 /from_scratch/node_modules
+/projet_final/node_modules
 .DS_Store
 .tool-versions
