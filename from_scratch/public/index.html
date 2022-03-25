@@ -114,34 +114,16 @@
 
       <!------------------------------------------------------------------------------------------------------------>
 
-      <section id="artists-section">
+      <section id="artist-section">
         <h4>Artistes</h4>
         <div class="artist-list">
-          <a href="#">
-            <img src="http://placekitten.com/200/300" />
-            <div class="artist-list-item-title">Ava Max</div>
-          </a>
-          <a href="#">
-            <img src="http://placekitten.com/200/300" />
-            <div class="artist-list-item-title">Ed Sheeran</div>
-          </a>
-          <a href="#">
-            <img src="http://placekitten.com/200/300" />
-            <div class="artist-list-item-title">Kungs</div>
-          </a>
-          <a href="#">
-            <img src="http://placekitten.com/200/300" />
-            <div class="artist-list-item-title">Kygo</div>
-          </a>
-          <a href="#">
-            <img src="http://placekitten.com/200/300" />
-            <div class="artist-list-item-title">Lost Frequencies</div>
-          </a>
-          <a href="#">
-            <img src="http://placekitten.com/200/300" />
-            <div class="artist-list-item-title">Stromaé</div>
-          </a>
         </div>
+          <template id="artist-list-item-template">
+            <a href="#">
+              <img src="" />
+              <div class="artist-list-item-title"></div>
+            </a>
+          </template>
       </section>
 
       <!------------------------------------------------------------------------------------------------------------>
@@ -167,50 +149,16 @@
           </li>
 
           <!-- Exemple sans lien -->
-          <li>
-            <div class="list-item-title">Never going home</div>
-            <div class="list-item-actions">
-              <button type="button" class="icon-button">
-                <span class="material-icons">playlist_add</span>
-              </button>
-              <button type="button" class="icon-button">
-                <span class="material-icons">play_arrow</span>
-              </button>
-            </div>
-          </li>
-          <li>
-            <div class="list-item-title">Never going home</div>
-            <div class="list-item-actions">
-              <button type="button" class="icon-button">
-                <span class="material-icons">playlist_add</span>
-              </button>
-              <button type="button" class="icon-button">
-                <span class="material-icons">play_arrow</span>
-              </button>
-            </div>
-          </li>
-          <li>
-            <div class="list-item-title">Never going home</div>
-            <div class="list-item-actions">
-              <button type="button" class="icon-button">
-                <span class="material-icons">playlist_add</span>
-              </button>
-              <button type="button" class="icon-button">
-                <span class="material-icons">play_arrow</span>
-              </button>
-            </div>
-          </li>
-          <li>
-            <div class="list-item-title">Never going home</div>
-            <div class="list-item-actions">
-              <button type="button" class="icon-button">
-                <span class="material-icons">playlist_add</span>
-              </button>
-              <button type="button" class="icon-button">
-                <span class="material-icons">play_arrow</span>
-              </button>
-            </div>
-          </li>
+          <template id="list-item-template">
+            <li>
+              <a href="#">
+                <div class="list-item-title">Never going home</div>
+                <div class="list-item-actions">
+                  <span class="material-icons">chevron_right</span>
+                </div>
+              </a>
+            </li>
+          </template>
           <li>
             <div class="list-item-title">Never going home</div>
             <div class="list-item-actions">
@@ -225,6 +173,30 @@
         </ul>
       </section>
       <!------------------------------------------------------------------------------------------------------------>
+      <!------------------------------------------------------------------------------------------------------------>
+
+      <section id="song-section">
+        <h4>
+          Artistes > Kungs
+          <!-- Exemple avec un bouton au bout du titre. Pour l'ajout de playlists, par exemple -->
+          <button type="button" class="icon-button align-right">
+            <span class="material-icons">add</span>
+          </button>
+        </h4>
+
+        <ul class="list">          
+        </ul>
+        <template id="song-list-item-template">
+          <li>
+            <a href="#">
+              <div class="list-item-title">Never going home</div>
+              <div class="list-item-actions">
+                <span class="material-icons">chevron_right</span>
+              </div>
+            </a>
+          </li>
+        </template>
+      </section>
     </main>
 
     <footer>
@@ -237,7 +209,7 @@
           <span class="material-icons">subscriptions</span>
           <span>Lecteur</span>
         </a>
-        <a href="#artists-section">
+        <a href="#artist-section">
           <span class="material-icons">library_music</span>
           <span>Musique</span>
         </a>
