@@ -1,7 +1,11 @@
 import './css/index.css'
 import {showArtists} from './sections/artists.js';
-import {showSongs} from './sections/songs.js';
+import {renderSearchSongsSection, renderSongsSection, showSongs} from './sections/songs.js';
+import {showPlayer} from './sections/player.js';
 import * as api from './api.js';
+import * as search from './sections/search.js';
+
+
 
 // Détection du changement de hash (location)
 window.addEventListener('hashchange', displaySection)
@@ -13,7 +17,7 @@ async function displaySection() {
   const section = window.location.hash;
   const sectionNoHashtag = section.split('#')[1];
   const sectionSplit = sectionNoHashtag.split('-');
-  console.log(sectionSplit);
+  //console.log(sectionSplit);
   
  
   toggleNav(sectionSplit[0]);
@@ -24,15 +28,25 @@ async function displaySection() {
     case 'artist':
       if (sectionSplit[1] != 'section'){
         toggleSection('song');
-        showSongs(sectionSplit[1]) 
+        renderSongsSection(sectionSplit[1]);
       }else 
         showArtists()
     break;
     case 'home':
-      showHomeSection()
+      
+    break;
+    case 'player':
+      toggleSection('player');
+      //showPlayer(30);
+    break;
+    case 'search':
+      // On réutilise la section 'songs' en arrière plan
+      toggleSection('song')
+      // on décode la chaine de recherche pour l'afficher proprement
+      renderSearchSongsSection(decodeURIComponent(sectionSplit[1]))
     break;
     default:
-      showHomeSection();
+      
     break;
   }
 }

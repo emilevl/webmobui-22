@@ -14,11 +14,14 @@
     <!-- Stylesheet principale (main.css, car c'est le nom de sortie utilisé par Webpack) -->
     <link rel="stylesheet" href="main.css" />
 
+    <!-- Lien vers le fichier manifest pour la PWA -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+
     <!-- Javascript principal (main.js, car c'est le nom de sortie utilisé par Webpack) -->
     <!-- ...à quoi sert le defer ? :) -->
     <script src="main.js" defer></script>
   </head>
-    <body>
+  <body>
     <header>
       <!-- ajouter la classe "animated" à #logo pour animer l'icône -->
       <div id="logo">
@@ -114,16 +117,44 @@
 
       <!------------------------------------------------------------------------------------------------------------>
 
-      <section id="artist-section">
+      <section id="artists-section">
         <h4>Artistes</h4>
+
         <div class="artist-list">
         </div>
-          <template id="artist-list-item-template">
-            <a href="#">
-              <img src="" />
-              <div class="artist-list-item-title"></div>
+
+        <template id="artist-list-item-template">
+          <a href="#">
+            <img src="" />
+            <div class="artist-list-item-title"></div>
+          </a>
+        </template>
+      </section>
+
+
+      <!------------------------------------------------------------------------------------------------------------>
+
+      <section id="songs-section">
+        <h4></h4>
+
+        <ul class="list">
+        </ul>
+
+        <template id="song-list-item-template">
+          <li>
+            <a href="">
+              <div class="list-item-title"></div>
+              <div class="list-item-actions">
+                <button type="button" class="icon-button favorite-button">
+                  <span class="material-icons">favorite_border</span>
+                </button>
+                <button type="button" class="icon-button play-button">
+                  <span class="material-icons">play_arrow</span>
+                </button>
+              </div>
             </a>
-          </template>
+          </li>
+        </template>
       </section>
 
       <!------------------------------------------------------------------------------------------------------------>
@@ -137,8 +168,7 @@
           </button>
         </h4>
 
-        <ul class="list">
-          <!-- Exemple avec un lien et un chevron (par exemple dans la liste de playlists, le lien qui mène à son contenu-->
+        <ul class="list">          <!-- Exemple avec un lien et un chevron (par exemple dans la liste de playlists, le lien qui mène à son contenu-->
           <li>
             <a href="#">
               <div class="list-item-title">Never going home</div>
@@ -149,16 +179,50 @@
           </li>
 
           <!-- Exemple sans lien -->
-          <template id="list-item-template">
-            <li>
-              <a href="#">
-                <div class="list-item-title">Never going home</div>
-                <div class="list-item-actions">
-                  <span class="material-icons">chevron_right</span>
-                </div>
-              </a>
-            </li>
-          </template>
+          <li>
+            <div class="list-item-title">Never going home</div>
+            <div class="list-item-actions">
+              <button type="button" class="icon-button">
+                <span class="material-icons">playlist_add</span>
+              </button>
+              <button type="button" class="icon-button">
+                <span class="material-icons">play_arrow</span>
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="list-item-title">Never going home</div>
+            <div class="list-item-actions">
+              <button type="button" class="icon-button">
+                <span class="material-icons">playlist_add</span>
+              </button>
+              <button type="button" class="icon-button">
+                <span class="material-icons">play_arrow</span>
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="list-item-title">Never going home</div>
+            <div class="list-item-actions">
+              <button type="button" class="icon-button">
+                <span class="material-icons">playlist_add</span>
+              </button>
+              <button type="button" class="icon-button">
+                <span class="material-icons">play_arrow</span>
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="list-item-title">Never going home</div>
+            <div class="list-item-actions">
+              <button type="button" class="icon-button">
+                <span class="material-icons">playlist_add</span>
+              </button>
+              <button type="button" class="icon-button">
+                <span class="material-icons">play_arrow</span>
+              </button>
+            </div>
+          </li>
           <li>
             <div class="list-item-title">Never going home</div>
             <div class="list-item-actions">
@@ -171,59 +235,50 @@
             </div>
           </li>
         </ul>
-      </section>
-      <!------------------------------------------------------------------------------------------------------------>
-      <!------------------------------------------------------------------------------------------------------------>
 
-      <section id="song-section">
-        <h4>
-          Artistes > Kungs
-          <!-- Exemple avec un bouton au bout du titre. Pour l'ajout de playlists, par exemple -->
-          <button type="button" class="icon-button align-right">
-            <span class="material-icons">add</span>
-          </button>
-        </h4>
-
-        <ul class="list">          
-        </ul>
-        <template id="song-list-item-template">
+        <template id="list-item-template">
           <li>
-            <a href="">
             <div class="list-item-title"></div>
             <div class="list-item-actions">
-              <button type="button" class="icon-button lyrics-button">
-                <span class="material-icons">format_align_left</span>
+              <button type="button" class="icon-button">
+                <span class="material-icons">playlist_add</span>
               </button>
-              <button type="button" class="icon-button favorite-button">
-                <span class="material-icons">favorite_border</span>
-              </button>
-              <button type="button" class="icon-button play-button">
+              <button type="button" class="icon-button play-icon">
                 <span class="material-icons">play_arrow</span>
               </button>
             </div>
-          </a>
           </li>
         </template>
+      </section>
+
+
+      <!------------------------------------------------------------------------------------------------------------>
+
+
+      <section id="lyrics-section">
+        <h4></h4>
+        <h5></h5>
+        <p></p>
       </section>
     </main>
 
     <footer>
       <nav>
-        <a href="#home-section" class="active">
+        <a href="#home" class="active">
           <span class="material-icons">home</span>
           <span>Home</span>
         </a>
-        <a href="#player-section">
+        <a href="#player">
           <span class="material-icons">subscriptions</span>
           <span>Lecteur</span>
         </a>
-        <a href="#artist-section">
+        <a href="#artists">
           <span class="material-icons">library_music</span>
           <span>Musique</span>
         </a>
-        <a href="#list-section">
-          <span class="material-icons">playlist_play</span>
-          <span>Playlists</span>
+        <a href="#favorites">
+          <span class="material-icons">favorite</span>
+          <span>Favoris</span>
         </a>
       </nav>
     </footer>

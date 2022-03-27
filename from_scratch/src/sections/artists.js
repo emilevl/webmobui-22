@@ -13,7 +13,7 @@ export async function showArtists() {
 }
 
 export async function showArtist(artist) {
-    console.log(artist);
+    //console.log(artist);
 
     const newArtist = artistListItemTmpl.content.cloneNode(true);
     newArtist.querySelector('a').href = `#artist-${artist.id}`;

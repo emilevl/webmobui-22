@@ -1,13 +1,21 @@
 const url = "https://webmob-ui-22-spotlified.herokuapp.com/api/";
 
+async function loadJson(url) {
+    const response = await fetch(url);
+    return await response.json();
+}
 export async function loadArtists() {
-    const response = await fetch(url + "artists")
-    const artists = await response.json();
-    return artists;
+    return await loadJson(url + "artists");
 }
 
 export async function loadSongs(id) {
-    const response = await fetch(url + "artists/" + id + "/songs")
-    const artists = await response.json();
-    return artists;
+    return await loadJson(url + "artists/" + id + "/songs");
+}
+
+export async function loadPlayer(songId) {
+    return await loadJson(url + "songs/" + songId);
+}
+
+export async function loadSearchRequest(searchRequest) {
+    return await loadJson(url + "songs/search/" + encodeURIComponent(searchRequest));
 }
