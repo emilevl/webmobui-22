@@ -1,0 +1,16 @@
+{
+  "short_name": "Instacats",
+  "name": "Instacats - Unleash the JS",
+  "icons": [
+    {
+      "src": "/images/logo_instacats.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#d6249f"
+}
