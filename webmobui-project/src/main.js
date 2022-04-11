@@ -5,38 +5,6 @@ createApp(App).mount('#app')
 
 import  {computed, ref, watchEffect} from 'vue';
 
-// const originalKelvin = ref(0);
-
-// const kelvin = computed({
-//     get: () => originalKelvin.value,
-//     set: (value) => originalKelvin.value = value
-// });
-
-// const celsius = computed({
-//     get: () => originalKelvin.value - 273.15,
-//     set: (value) => {
-//         originalKelvin.value =  value + 273.15
-//     },
-// })
-
-// const fahrenheit = computed({
-//     get: () => Math.round(originalKelvin.value * 1.8 - 459.67),
-//     set: (value) => {
-//         originalKelvin.value =  Math.round((value + 459.67) / 1.8);
-//     },
-    
-//     //  ANCIENNE VERSION return kelvin.value * 1.8 - 459.67;
-// })
-
-
-// watchEffect(() => {
-//     console.log("---- CHANGEMENT ----")
-//     console.log("kelvin: " + kelvin.value);
-//     console.log("celsius: " + celsius.value);
-//     console.log("fahrenheit: " + fahrenheit.value);
-// });
-
-// celsius.value = 30
 
 
 // ________________ ENTRAINEMENT _______________________//
