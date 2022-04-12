@@ -1,43 +1,61 @@
 <script setup>
-  import { computed } from "@vue/runtime-core";
-//   import { round } from '../utils/math.js';
+  import { computed, ref } from 'vue';
+  import { round } from '../utils/math.js';
+
   const props = defineProps({
     modelValue: {
       type: [String, Number],
-      required: true,
+      required: true
     },
-    decimalPlaces: {
-      type: Number,
-      required: false,
-      default: 2
-    },
-    unit: {
+    symbol: {
       type: String,
       required: false,
       default: ''
-    }
-  });
-  const emit = defineEmits([
-    'update:modelValue'
+    },
+    label: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    id: {
+      type: String,
+      required: false,
+      default: ''
+    },
+  })
+
+  const emits = defineEmits([
+    'update:modelValue',
+    'itsOver9000'
   ]);
+  
+  // Etape intermédiaire
   const value = computed({
-    get: () => Math.round(props.modelValue, props.decimalPlaces),
+    get: () => round(props.modelValue, 2),
     set: val => {
-      if (isNaN(val) || val === '') return;
-      emit('update:modelValue', val);
+      if ( val > 9000) emits('itsOver9000', val)
+      if (isNaN(val) || val === "") return;
+      emits('update:modelValue', round(val, 2))
     }
-  });
+  })
 </script>
 
 <template>
     <!-- v-bind="$attrs": Les attributs fournis dans le fichier principal (App.vue) seront attribués à l'input uniquement -->
+  <label :for="id" v-show="label">{{props.label}}</label>
   <input
-    v-bind="$attrs"
     type="number"
     v-model="value"
+    v-bind="$attrs"
+    :id="id"
   >
-  <span v-show="unit">
-    {{ unit }}
+  <!-- <input
+    type="number"
+    :value="modelValue"
+    @input="modelValue = $event.target.value"
+    > -->
+  <span v-show="symbol">
+    {{ symbol }}
   </span>
 </template>
 
@@ -47,6 +65,8 @@
     font-size: 1rem;
     border: solid black 1px;
     padding: 0 0.5rem;
+    margin: 0 0 0 1.5rem;
+    border-radius: 5px 0px 0px 5px;
   }
   span {
     display: inline-block;
@@ -56,5 +76,6 @@
     min-width: 2rem;
     text-align: center;
     border-width: 1px 1px 1px 0;
+    border-radius: 0px 5px 5px 0px;
   }
 </style>

@@ -6,13 +6,21 @@
   import TheMenu from './components/TheMenu.vue';
   import TheTemperatureConverter from './components/TheTemperatureConverter.vue';
   import TheMoneyConverter from './components/TheMoneyConverter.vue';
+  import  {page} from './state.js';
+
 
 </script>
 
 <template>
     <the-menu></the-menu>
-    <the-temperature-converter v-if="isHidden"></the-temperature-converter>
-    <the-money-converter></the-money-converter>
+    <h1 v-show="page === '#home'">Welcome to the converters Web app</h1>
+    <div  v-show="page === '#temperature'">
+      <the-temperature-converter/>
+    </div>
+    <div  v-show="page === '#money'">
+      <the-money-converter/>
+    </div>
+    <!-- <the-money-converter v-show="page === '#money'"></the-money-converter> -->
 </template>
 
 <style>

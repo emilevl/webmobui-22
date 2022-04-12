@@ -8,59 +8,48 @@
   const originalKelvin = ref(0);
 
   const kelvin = computed({
-      get: () => Math.round(originalKelvin.value * 100) / 100,
+      get: () => originalKelvin.value,
       set: (value) => originalKelvin.value = value
   });
 
   const celsius = computed({
-      get: () => Math.round((originalKelvin.value - 273.15) * 100) / 100,
+      get: () => originalKelvin.value - 273.15,
       set: (value) => {
           originalKelvin.value = (value + 273.15)
       },
   })
 
   const fahrenheit = computed({
-      get: () => Math.round((originalKelvin.value * 1.8 - 459.67) * 100) / 100,
+      get: () => originalKelvin.value * 1.8 - 459.67,
       set: (value) => {
           originalKelvin.value = (value + 459.67) / 1.8;
       },
-      
-      //  ANCIENNE VERSION return kelvin.value * 1.8 - 459.67;
   })
-
-
-  // watchEffect(() => {
-  //     console.log("---- CHANGEMENT ----")
-  //     console.log("kelvin: " + kelvin.value);
-  //     console.log("celsius: " + celsius.value);
-  //     console.log("fahrenheit: " + fahrenheit.value);
-  // });
-
-  // celsius.value = 30
-
 </script>
 
 <template>
-    <h1>Températures</h1>
-  <!-- INPUT VERSION LONGUE -->
-  <label for="fahrenheit">Fahrenheit:</label>
-  <input type="number" :value="fahrenheit" @input="evt => fahrenheit = (evt.target.value) - 0" id="fahrenheit">
-  <br>
-  <br>
-  <!-- INPUT VERSION RACCOURCIE (fait le même taff) -->
-  <label for="celsius">Celsius:</label>
-  <input type="number" v-model.number="celsius" id="celsius">
-  <br>
-  <br>
-  <label for="kelvin">Kelvin:</label>
-  <input type="number" v-model.number="kelvin" id="kelvin">
-  
-  <!-- VERSION AVEC BOUTON PERSONNALISÉ (COMPOSANT) -->
-  <label>Kelvin</label>
+  <h1>Températures</h1>
   <base-input-number
-    v-model="kelvin"
-    :decimal-places="precision"
-    unit="K"
-    data-role="input"
+  v-model="celsius"
+  symbol="°C"
+  id="celsius"
+  label="Celsius"
   />
+  <br>
+  <br>
+  <base-input-number
+  v-model="kelvin"
+  symbol="K"
+  id="kelvin"
+  label="Kelvin"
+  />
+  <br>
+  <br>
+  <base-input-number
+  v-model="fahrenheit"
+  symbol="F"
+  id="fahrenheit"
+  label="Fahrenheit"
+  />
+  <br>
 </template>
