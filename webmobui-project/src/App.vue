@@ -6,6 +6,7 @@
   import TheMenu from './components/TheMenu.vue';
   import TheTemperatureConverter from './components/TheTemperatureConverter.vue';
   import TheMoneyConverter from './components/TheMoneyConverter.vue';
+  import TheRegister from './components/TheRegister.vue';
   import  {page} from './state.js';
 
 
@@ -19,6 +20,9 @@
     </div>
     <div  v-show="page === '#money'">
       <the-money-converter/>
+    </div>
+    <div>
+      <the-register/>
     </div>
     <!-- <the-money-converter v-show="page === '#money'"></the-money-converter> -->
 </template>
